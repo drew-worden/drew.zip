@@ -4,8 +4,10 @@
 		"name": "Drew Worden",
 		"email": "drew.p.worden@gmail.com"
 	},
+	"description": "A SvelteKit application for rendering content and communicating with the backend Express server.",
 	"type": "module",
 	"private": true,
+	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
