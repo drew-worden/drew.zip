@@ -4,9 +4,9 @@ A SvelteKit application for rendering content and communicating with the backend
 
 ![](https://img.shields.io/badge/CREATED_BY-DREW_WORDEN-black)
 
-- [Features](#features)
-- [Local Deployment Instructions](#local-deployment-instructions)
-- [Production Deployment Instructions](#production-deployment-instructions)
+-   [Features](#features)
+-   [Local Deployment Instructions](#local-deployment-instructions)
+-   [Production Deployment Instructions](#production-deployment-instructions)
 
 ## Features
 

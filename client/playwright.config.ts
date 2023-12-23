@@ -1,5 +1,5 @@
 //Import packages
-import type { PlaywrightTestConfig } from '@playwright/test';
+import type { PlaywrightTestConfig } from '@playwright/test'
 
 //Playwright configuration
 const playwrightConfig: PlaywrightTestConfig = {
@@ -9,7 +9,7 @@ const playwrightConfig: PlaywrightTestConfig = {
 	},
 	testDir: 'tests/integration',
 	testMatch: /(.+\.)?(test|spec)\.[jt]s/
-};
+}
 
 //Exports
-export default playwrightConfig;
+export default playwrightConfig

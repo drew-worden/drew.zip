@@ -1,0 +1,16 @@
+{
+  "name": "drew.zip",
+  "author": {
+    "name": "Drew Worden",
+    "email": "drew.p.worden@gmail.com"
+  },
+  "description": "The portfolio and personal application of Drew Worden.",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3"
+  }
+}

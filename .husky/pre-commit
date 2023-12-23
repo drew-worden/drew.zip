@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Client
+cd ./client
+npm run format
+npm run lint
+npm run check
+npm run test
+npm run build
+
+# Server
+cd ../server
