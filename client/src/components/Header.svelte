@@ -2,6 +2,7 @@
 	//Import components
 	import ProfilePhoto from "./ProfilePhoto.svelte"
 	import Icon from "./Icon.svelte"
+	import StatusBadge from "./StatusBadge.svelte";
 </script>
 
 <header>
@@ -27,7 +28,7 @@
 			>
 			<a
 				href="/resume"
-				class="links special-link">Resume</a
+				class="links">Resume</a
 			>
 			<a
 				href="/contact"
@@ -35,6 +36,9 @@
 			>
 		</nav>
 		<div class="shortcut-container">
+			<div style="margin-right: 8px;">
+				<StatusBadge variant="active" text="Enjoying Christmas 🎄" tooltipPosition="right"/>
+			</div>
 			<Icon
 				target="_blank"
 				href="https://github.com/drew-worden"
@@ -99,10 +103,6 @@
 		font-size: 14px;
 		line-height: 1.25rem;
 		transition: all 0.1s linear;
-	}
-
-	.special-link {
-		color: #fafafaef;
 	}
 
 	.links:hover {

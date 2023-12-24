@@ -47,6 +47,8 @@
 		border-radius: 6px;
 		padding: 6px 12px;
 		position: absolute;
+		text-wrap: nowrap;
+		z-index: 2;
 	}
 
 	p {
