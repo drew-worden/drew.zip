@@ -1,0 +1,18 @@
+:root {
+	/* Backgrounds */
+	--l1-bg-color: #fafaf9;
+
+	--d1-bg-color: #0c0a09;
+	--d2-bg-color: #292524;
+	--d3-bg-color: #838281;
+
+	/* Text */
+	--l1-text-color: #fafaf9;
+	--l2-text-color: #a1a1aa;
+	--l3-text-color: #a8a29e;
+
+	--d1-text-color: #18181b;
+	--d2-text-color: #1c1917;
+
+	--border-color: 12 6.5% 15.1%;
+}

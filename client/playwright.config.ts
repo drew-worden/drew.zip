@@ -1,13 +1,13 @@
 //Import packages
-import type { PlaywrightTestConfig } from '@playwright/test'
+import type { PlaywrightTestConfig } from "@playwright/test"
 
 //Playwright configuration
 const playwrightConfig: PlaywrightTestConfig = {
 	webServer: {
-		command: 'npm run build && npm run preview',
+		command: "npm run build && npm run preview",
 		port: 4173
 	},
-	testDir: 'tests/integration',
+	testDir: "tests/integration",
 	testMatch: /(.+\.)?(test|spec)\.[jt]s/
 }
 
