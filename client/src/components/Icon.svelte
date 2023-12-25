@@ -10,6 +10,7 @@
 	export let iconPath: string = ""
 	export let tooltipText: string = ""
 	export let tooltipPosition: ToolTipPosition = "bottom"
+	export let tooltipBlocker = false
 	export let size = 24
 	export let target: AnchorTarget = "_self"
 
@@ -22,7 +23,10 @@
 		{href}
 		{target}
 		class="link-button"
-		on:click="{() => (tooltipState = false)}"
+		on:click
+		on:click="{() => {
+			tooltipState = false
+		}}"
 		on:mouseenter="{() => (tooltipState = true)}"
 		on:mouseleave="{() => (tooltipState = false)}"
 	>
@@ -36,12 +40,14 @@
 			<ToolTip
 				text="{tooltipText}"
 				position="{tooltipPosition}"
+				blocker="{tooltipBlocker}"
 			/>
 		{/if}
 	</a>
 {:else}
 	<button
 		class="link-button"
+		on:click
 		on:click="{() => (tooltipState = false)}"
 		on:mouseenter="{() => (tooltipState = true)}"
 		on:mouseleave="{() => (tooltipState = false)}"
@@ -55,6 +61,7 @@
 			<ToolTip
 				text="{tooltipText}"
 				position="{tooltipPosition}"
+				blocker="{tooltipBlocker}"
 			/>
 		{/if}
 	</button>

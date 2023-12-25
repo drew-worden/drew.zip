@@ -8,6 +8,7 @@
 	//Props
 	export let text: string = ""
 	export let position: ToolTipPosition = "bottom"
+	export let blocker = false
 
 	function positionMapper(position: ToolTipPosition) {
 		switch (position) {
@@ -33,13 +34,15 @@
 	}
 </script>
 
-<div
-	transition:slide="{{ duration: 100, axis: transitionMapper(position) }}"
-	class="container border"
-	style="{positionMapper(position)}"
->
-	<p>{text}</p>
-</div>
+{#if !blocker}
+	<div
+		transition:slide="{{duration: 100, axis: transitionMapper(position) }}"
+		class="container border"
+		style="{positionMapper(position)}"
+	>
+		<p>{text}</p>
+	</div>
+{/if}
 
 <style>
 	.container {
@@ -47,8 +50,8 @@
 		border-radius: 6px;
 		padding: 6px 12px;
 		position: absolute;
-		text-wrap: nowrap;
-		z-index: 2;
+		z-index: 3;
+		white-space: nowrap;
 	}
 
 	p {

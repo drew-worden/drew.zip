@@ -3,7 +3,7 @@
 	import type { StatusIndicatorVariant } from "../types/components"
 
 	//Props
-	export const size: number = 8
+	export let size: number = 8
 	export let variant: StatusIndicatorVariant
 
 	function variantMapper(variant: StatusIndicatorVariant): string {

@@ -31,8 +31,8 @@
 	</Badge>
 	{#if tooltip}
 		<ToolTip
-			position={tooltipPosition}
-			text={`Status: ${variant.charAt(0).toUpperCase() + variant.slice(1)}`}
+			position="{tooltipPosition}"
+			text="{`Status: ${variant.charAt(0).toUpperCase() + variant.slice(1)}`}"
 		/>
 	{/if}
 </div>

@@ -45,3 +45,7 @@ p {
 .border {
 	border: 1px solid hsl(var(--border-color));
 }
+
+.border-thick {
+	border: 2px solid hsl(240 3.7% 15.9%);
+}
