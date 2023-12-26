@@ -1,0 +1,39 @@
+{
+	"name": "server",
+	"author": {
+		"name": "Drew Worden",
+		"email": "drew.p.worden@gmail.com"
+	},
+	"description": "An Express server for handling backend requests and communicating with the SvelteKit client.",
+	"private": true,
+	"license": "MIT",
+	"scripts": {
+		"start": "node ./build/server.js",
+		"dev": "nodemon",
+		"build": "tsc",
+		"lint": "eslint .",
+		"format": "prettier --write ."
+	},
+	"dependencies": {
+		"compression": "^1.7.4",
+		"dotenv": "^16.3.1",
+		"express": "^4.18.2",
+		"morgan": "^1.10.0",
+		"uuidv4": "^6.2.13",
+		"winston": "^3.11.0"
+	},
+	"devDependencies": {
+		"@types/compression": "^1.7.5",
+		"@types/express": "^4.17.21",
+		"@types/morgan": "^1.9.9",
+		"@types/node": "^20.10.5",
+		"@typescript-eslint/eslint-plugin": "^6.16.0",
+		"@typescript-eslint/parser": "^6.16.0",
+		"eslint": "^8.56.0",
+		"eslint-config-prettier": "^9.1.0",
+		"nodemon": "^3.0.2",
+		"prettier": "^3.1.1",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.3.3"
+	}
+}

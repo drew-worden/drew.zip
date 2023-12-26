@@ -11,3 +11,6 @@ npm run build
 
 # Server
 cd ../server
+npm run format
+npm run lint
+npm run build
