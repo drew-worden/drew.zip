@@ -8,7 +8,7 @@ import express from "express"
 import logger from "./utilities/logger"
 
 //Import routers
-import testRouter from "./routers/test-router"
+import dashboardRouter from "./routers/dashboard-router"
 
 //Load environment variables
 dotenv.config()
@@ -34,7 +34,7 @@ server.use(
 )
 
 //Route handlers
-server.use("/test", testRouter)
+server.use("/dashboard", dashboardRouter)
 
 //Start service
 server.listen(port, async () => {
