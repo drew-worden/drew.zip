@@ -4,9 +4,9 @@
 	import Icon from "./Icon.svelte"
 	import StatusBadge from "./StatusBadge.svelte"
 	import Popover from "./Popover.svelte"
-	import HorizontalDivider from "./HorizontalDivider.svelte";
-	import Button from "./Button.svelte";
-	import LockIcon from "./icons/LockIcon.svelte";
+	import HorizontalDivider from "./HorizontalDivider.svelte"
+	import Button from "./Button.svelte"
+	import LockIcon from "./icons/LockIcon.svelte"
 
 	//State
 	let dashboardPopover = false
@@ -60,7 +60,7 @@
 				size="{20}"
 				tooltipPosition="bottom"
 				tooltipText="GitHub"
-				iconPath="src/assets/icons/github.svg"
+				iconPath="/icons/github.svg"
 			/>
 			<Icon
 				target="_blank"
@@ -68,14 +68,14 @@
 				size="{20}"
 				tooltipPosition="bottom"
 				tooltipText="LinkedIn"
-				iconPath="src/assets/icons/linkedin.svg"
+				iconPath="/icons/linkedin.svg"
 			/>
 			<div style="position: relative;">
 				<Icon
 					size="{20}"
 					tooltipPosition="bottom"
 					tooltipText="Apps"
-					iconPath="src/assets/icons/dashboard.svg"
+					iconPath="/icons/dashboard.svg"
 					on:click="{() => {
 						dashboardPopover = !dashboardPopover
 					}}"
@@ -86,37 +86,64 @@
 					bind:open="{dashboardPopover}"
 				>
 					<h3 class="app-popover-title">Drew's Applications</h3>
-					<p class="app-popover-subtitle">A personal suite of custom applications on private servers.</p>
-					<HorizontalDivider margin={16}/>
+					<p class="app-popover-subtitle">
+						A personal suite of custom applications on private servers.
+					</p>
+					<HorizontalDivider margin="{16}" />
 					<div class="app-popover-card-container">
 						<div class="app-popover-card border-thick">
-							<img src="/src/assets/icons/doc.svg" alt="doc icon">
+							<img
+								src="/icons/doc.svg"
+								alt="doc icon"
+							/>
 							<span class="app-popover-card-title">Blog Publisher</span>
 						</div>
 						<div class="app-popover-card border-thick">
-							<img src="/src/assets/icons/archive.svg" alt="archive icon">
+							<img
+								src="/icons/archive.svg"
+								alt="archive icon"
+							/>
 							<span class="app-popover-card-title">Archive</span>
 						</div>
 						<div class="app-popover-card border-thick">
-							<img src="/src/assets/icons/calendar.svg" alt="calendar icon">
+							<img
+								src="/icons/calendar.svg"
+								alt="calendar icon"
+							/>
 							<span class="app-popover-card-title">Calendar</span>
 						</div>
 						<div class="app-popover-card border-thick">
-							<img src="/src/assets/icons/clipboard.svg" alt="clipboard icon">
+							<img
+								src="/icons/clipboard.svg"
+								alt="clipboard icon"
+							/>
 							<span class="app-popover-card-title">Project Manager</span>
 						</div>
 						<div class="app-popover-card border-thick">
-							<img src="/src/assets/icons/chat.svg" alt="chat icon">
+							<img
+								src="/icons/chat.svg"
+								alt="chat icon"
+							/>
 							<span class="app-popover-card-title">Messaging</span>
 						</div>
 						<div class="app-popover-card border-thick">
-							<img src="/src/assets/icons/camera.svg" alt="camera icon">
+							<img
+								src="/icons/camera.svg"
+								alt="camera icon"
+							/>
 							<span class="app-popover-card-title">Video Chat</span>
 						</div>
 					</div>
-					<HorizontalDivider margin={16}/>
-					<Button variant="primary" size="fill" text="Access">
-						<LockIcon size={16} fillColor="#18181b"/>
+					<HorizontalDivider margin="{16}" />
+					<Button
+						variant="primary"
+						size="fill"
+						text="Access"
+					>
+						<LockIcon
+							size="{16}"
+							fillColor="#18181b"
+						/>
 					</Button>
 				</Popover>
 			</div>
@@ -188,13 +215,13 @@
 		color: var(--l2-text-color);
 		font-size: 14px;
 		line-height: unset;
+		text-wrap: wrap;
 	}
 
 	.app-popover-card-container {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 16px;
-		
 	}
 
 	.app-popover-card {
@@ -221,6 +248,6 @@
 		font-family: geist;
 		font-weight: 500;
 		color: var(--l1-text-color);
-		font-size: .875rem;
+		font-size: 0.875rem;
 	}
 </style>

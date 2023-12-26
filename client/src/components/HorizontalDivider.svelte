@@ -3,7 +3,10 @@
 	export let margin: number
 </script>
 
-<div class="divider" style={`margin: ${margin}px 0px;`}></div>
+<div
+	class="divider"
+	style="{`margin: ${margin}px 0px;`}"
+></div>
 
 <style>
 	.divider {

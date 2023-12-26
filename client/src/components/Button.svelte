@@ -1,7 +1,7 @@
 <script lang="ts">
 	//Import types
-	import type {ButtonVariant, ButtonSize} from "../types/components"
-	
+	import type { ButtonVariant, ButtonSize } from "../types/components"
+
 	//Props
 	export let variant: ButtonVariant = "primary"
 	export let size: ButtonSize = "default"
@@ -30,8 +30,8 @@
 	}
 </script>
 
-<button class={compileStyles(variant, size)}>
-	<slot/>
+<button class="{compileStyles(variant, size)}">
+	<slot />
 	<span>{text}</span>
 </button>
 
@@ -56,7 +56,7 @@
 	}
 
 	.primary-variant:hover {
-		background-color: #E2E2E2;
+		background-color: #e2e2e2;
 	}
 
 	.secondary-variant {

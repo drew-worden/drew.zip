@@ -6,13 +6,13 @@
 
 {#if rounded}
 	<img
-		src="/src/assets/images/rounded-profile-photo.png"
+		src="/images/rounded-profile-photo.png"
 		alt="Drew Worden profile icon"
 		style="{`width: ${size}px; height: ${size}px;`}"
 	/>
 {:else}
 	<img
-		src="/src/assets/images/profile-photo.png"
+		src="/images/profile-photo.png"
 		alt="Drew Worden profile icon"
 		style="{`width: ${size}px; height: ${size}px;`}"
 	/>

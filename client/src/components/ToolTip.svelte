@@ -36,7 +36,7 @@
 
 {#if !blocker}
 	<div
-		transition:slide="{{duration: 100, axis: transitionMapper(position) }}"
+		transition:slide="{{ duration: 100, axis: transitionMapper(position) }}"
 		class="container border"
 		style="{positionMapper(position)}"
 	>
