@@ -27,5 +27,30 @@ function bubbleSort(array: number[]) {
 	return moves
 }
 
+/**
+ * Sorts an array of numbers using the selection sort algorithm.
+ * @param array - The array of numbers to be sorted.
+ * @returns An array of Move objects representing the steps taken during the sorting process.
+ */
+function selectionSort(array: number[]) {
+	const moves: Move[] = []
+	for (let i = 0; i < array.length - 1; i++) {
+		let minIndex = i
+		for (let j = i + 1; j < array.length; j++) {
+			if (array[j] < array[minIndex]) {
+				minIndex = j
+			}
+			moves.push({ indices: [i, j], swapped: false })
+		}
+		if (minIndex !== i) {
+			const temp = array[i]
+			array[i] = array[minIndex]
+			array[minIndex] = temp
+			moves.push({ indices: [i, minIndex], swapped: true })
+		}
+	}
+	return moves
+}
+
 // Exports
-export { bubbleSort }
+export { bubbleSort, selectionSort }

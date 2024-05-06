@@ -9,8 +9,9 @@
 		drawColumns,
 		animateColumns
 	} from "$lib/projects/algorithm-visualizer/main"
-	import { bubbleSort } from "$lib/projects/algorithm-visualizer/algos"
+	import { bubbleSort, selectionSort } from "$lib/projects/algorithm-visualizer/algos"
 	import type Column from "$lib/projects/algorithm-visualizer/column"
+	import type { Move } from "$lib/projects/algorithm-visualizer/types"
 
 	// Props
 	export let numColumns: number = 20
@@ -19,8 +20,13 @@
 	// State
 	let array = generateRandomArray(numColumns)
 	let columns: Column[] = []
+	let selectedId = "0"
 
 	// Handlers
+	/**
+	 * Handles the change event for the number of columns input.
+	 * Checks for a valid number of columns and updates the array and columns accordingly.
+	 */
 	function handleNumColumnsChange() {
 		// Check for valid number of columns
 		if (numColumns < 2) {
@@ -39,16 +45,38 @@
 		drawColumns(canvasRef, columns)
 	}
 
+	/**
+	 * Handles the randomize button click event.
+	 * Generates a random array, generates columns based on the array, and draws the columns on the canvas.
+	 */
 	function handleRandomize() {
 		array = generateRandomArray(numColumns)
 		columns = generateColumns(array, canvasRef)
 		drawColumns(canvasRef, columns)
 	}
 
+	/**
+	 * Handles the start button click event.
+	 * Generates an array of moves based on the selected algorithm,
+	 * and animates the columns using the generated moves.
+	 */
 	function handleStart() {
-		let moves = bubbleSort(array)
-		console.log(moves)
+		let moves: Move[] = []
+		if (selectedId === "0") {
+			moves = bubbleSort(array)
+		} else if (selectedId === "1") {
+			moves = selectionSort(array)
+		}
 		animateColumns(canvasRef, columns, moves)
+	}
+
+	/**
+	 * Handles the selection event.
+	 *
+	 * @param {CustomEvent} event - The custom event object.
+	 */
+	function handleSelect(event: CustomEvent) {
+		selectedId = event.detail.selectedId
 	}
 
 	// Lifecycle
@@ -66,7 +94,11 @@
 		size="sm"
 		titleText="Algorithm"
 		selectedId="0"
-		items={[{ id: "0", text: "Bubble Sort" }]}
+		on:select={handleSelect}
+		items={[
+			{ id: "0", text: "Bubble Sort" },
+			{ id: "1", text: "Selection Sort" }
+		]}
 	/>
 	<div class="number-wrapper">
 		<NumberInput
