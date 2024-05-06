@@ -3,8 +3,8 @@ import { lerp } from "./utils"
 import type { Location } from "./types"
 
 class Column {
-	private x: number
-	private y: number
+	public x: number
+	public y: number
 	private width: number
 	private height: number
 	private queue: Location[]
@@ -18,10 +18,13 @@ class Column {
 	}
 
 	draw(ctx: CanvasRenderingContext2D) {
+		let changed = false
+
 		if (this.queue.length > 0) {
 			const { x, y } = this.queue.shift()!
 			this.x = x
 			this.y = y
+			changed = true
 		}
 
 		const left = this.x - this.width / 2
@@ -38,12 +41,17 @@ class Column {
 		ctx.ellipse(this.x, top, this.width / 2, this.width / 4, 0, 0, Math.PI * 2, true)
 		ctx.fill()
 		ctx.stroke()
+		return changed
 	}
 
-	moveTo(location: Location, frameCount = 100) {
+	moveTo(location: Location, frameCount = 10, offset = 1) {
 		for (let i = 1; i <= frameCount; i++) {
 			const t = i / frameCount
-			this.queue.push({ x: lerp(this.x, location.x, t), y: lerp(this.y, location.y, t) })
+			const u = Math.sin(t * Math.PI)
+			this.queue.push({
+				x: lerp(this.x, location.x, t),
+				y: lerp(this.y, location.y, t) + (u * this.width) / 2 * offset
+			})
 		}
 	}
 }

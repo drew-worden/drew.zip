@@ -5,11 +5,12 @@
 	import {
 		fillArrayWithRandoms,
 		generateColumns,
-		animateColumns
+		animateColumns,
+		bubbleSort
 	} from "$lib/projects/algorithm-visualizer/main"
 
 	// State
-	let numColumns = 100
+	let numColumns = 20
 	let canvas: HTMLCanvasElement
 	let array: number[] = []
 
@@ -19,7 +20,9 @@
 		canvas.width = window.innerWidth - 64
 		canvas.height = 500
 		const columns = generateColumns(array, canvas)
-		animateColumns(canvas, columns)
+		let moves = bubbleSort(array)
+		console.log(moves)
+		animateColumns(canvas, columns, moves)
 	})
 </script>
 

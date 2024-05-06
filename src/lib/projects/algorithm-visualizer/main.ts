@@ -50,18 +50,33 @@ function generateColumns(
 	return cols
 }
 
-function animateColumns(canvas: HTMLCanvasElement, columns: Column[]) {
+function animateColumns(canvas: HTMLCanvasElement, columns: Column[], moves: Move[]) {
 	const ctx = canvas.getContext("2d")
 	if (!ctx) {
 		throw new Error("Canvas context is null")
 	}
 
 	ctx.clearRect(0, 0, canvas.width, canvas.height)
+	let changed = false
 	for (let i = 0; i < columns.length; i++) {
-		columns[i].draw(ctx)
+		changed = columns[i].draw(ctx) || changed
 	}
 
-	requestAnimationFrame(() => animateColumns(canvas, columns))
+	if (!changed && moves.length > 0) {
+		const move = moves.shift()
+		const [i, j] = move?.indices ?? []
+		if (move?.swapped) {
+			columns[i].moveTo(columns[j])
+			columns[j].moveTo(columns[i], 10, -1)
+			const temp = columns[i]
+			columns[i] = columns[j]
+			columns[j] = temp
+		} else {
+			// Highlight the columns that are being compared
+		}
+	}
+
+	requestAnimationFrame(() => animateColumns(canvas, columns, moves))
 }
 
 /**
@@ -71,8 +86,9 @@ function animateColumns(canvas: HTMLCanvasElement, columns: Column[]) {
  */
 function bubbleSort(array: number[]) {
 	const moves: Move[] = []
-	let swapped = false
+	let swapped: boolean
 	do {
+		swapped = false
 		for (let i = 1; i < array.length; i++) {
 			if (array[i - 1] > array[i]) {
 				const temp = array[i - 1]
@@ -81,7 +97,6 @@ function bubbleSort(array: number[]) {
 				swapped = true
 				moves.push({ indices: [i - 1, i], swapped: true })
 			} else {
-				swapped = false
 				moves.push({ indices: [i - 1, i], swapped: false })
 			}
 		}
