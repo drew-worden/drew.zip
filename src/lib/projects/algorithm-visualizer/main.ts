@@ -1,5 +1,6 @@
 // Imports
 import Column from "$lib/projects/algorithm-visualizer/column"
+import type { Move } from "./types"
 
 /**
  * Fills an array with random numbers.
@@ -63,4 +64,30 @@ function animateColumns(canvas: HTMLCanvasElement, columns: Column[]) {
 	requestAnimationFrame(() => animateColumns(canvas, columns))
 }
 
-export { fillArrayWithRandoms, generateColumns, animateColumns }
+/**
+ * Sorts an array of numbers using the bubble sort algorithm.
+ * @param array - The array of numbers to be sorted.
+ * @returns An array of Move objects representing the moves made during the sorting process.
+ */
+function bubbleSort(array: number[]) {
+	const moves: Move[] = []
+	let swapped = false
+	do {
+		for (let i = 1; i < array.length; i++) {
+			if (array[i - 1] > array[i]) {
+				const temp = array[i - 1]
+				array[i - 1] = array[i]
+				array[i] = temp
+				swapped = true
+				moves.push({ indices: [i - 1, i], swapped: true })
+			} else {
+				swapped = false
+				moves.push({ indices: [i - 1, i], swapped: false })
+			}
+		}
+	} while (swapped)
+
+	return moves
+}
+
+export { fillArrayWithRandoms, generateColumns, animateColumns, bubbleSort }

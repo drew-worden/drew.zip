@@ -4,5 +4,10 @@ interface Location {
 	y: number
 }
 
+interface Move {
+	indices: number[]
+	swapped: boolean
+}
+
 // Exports
-export type { Location }
+export type { Location, Move }
