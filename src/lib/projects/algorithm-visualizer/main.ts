@@ -54,7 +54,7 @@ function generateColumns(
 
 /**
  * Draws the columns on the canvas.
- * 
+ *
  * @param canvas - The HTMLCanvasElement on which the columns will be drawn.
  * @param columns - An array of Column objects representing the columns to be drawn.
  * @throws Error if the canvas context is null.

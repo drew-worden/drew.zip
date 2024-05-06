@@ -28,4 +28,4 @@ function bubbleSort(array: number[]) {
 }
 
 // Exports
-export {bubbleSort}
+export { bubbleSort }

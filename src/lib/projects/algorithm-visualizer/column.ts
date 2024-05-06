@@ -1,13 +1,14 @@
 // Imports
 import { lerp } from "./utils"
-import type { Location } from "./types"
+import type { QueueEntry, RGB } from "./types"
 
 class Column {
 	public x: number
 	public y: number
 	private width: number
 	private height: number
-	private queue: Location[]
+	private queue: QueueEntry[]
+	private color: RGB
 
 	/**
 	 * Represents a column in the algorithm visualizer.
@@ -18,6 +19,7 @@ class Column {
 		this.width = width
 		this.height = height
 		this.queue = []
+		this.color = { r: 150, g: 150, b: 150 }
 	}
 
 	/**
@@ -30,9 +32,10 @@ class Column {
 		let changed = false
 
 		if (this.queue.length > 0) {
-			const { x, y } = this.queue.shift()!
+			const { x, y, r, g, b } = this.queue.shift()!
 			this.x = x
 			this.y = y
+			this.color = { r, g, b }
 			changed = true
 		}
 
@@ -42,7 +45,8 @@ class Column {
 		const bottom = this.y
 
 		ctx.beginPath()
-		ctx.fillStyle = "rgb(150, 150, 150)"
+		const { r, g, b } = this.color
+		ctx.fillStyle = `rgb(${r}, ${g}, ${b})`
 		ctx.moveTo(left, top)
 		ctx.lineTo(left, bottom)
 		ctx.ellipse(this.x, this.y, this.width / 2, this.width / 4, 0, Math.PI, Math.PI * 2, true)
@@ -59,13 +63,16 @@ class Column {
 	 * @param frameCount - The number of frames to complete the movement. Default is 10.
 	 * @param offset - The offset to apply to the y-coordinate of the column during the movement. Default is 1 or -1.
 	 */
-	moveTo(location: Location, frameCount = 10, offset = 1 | -1) {
+	moveTo(column: Column, frameCount = 10, offset = 1 | -1) {
 		for (let i = 1; i <= frameCount; i++) {
 			const t = i / frameCount
 			const u = Math.sin(t * Math.PI)
 			this.queue.push({
-				x: lerp(this.x, location.x, t),
-				y: lerp(this.y, location.y, t) + ((u * this.width) / 4) * offset
+				x: lerp(this.x, column.x, t),
+				y: lerp(this.y, column.y, t) + ((u * this.width) / 4) * offset,
+				r: lerp(150, 0, u),
+				g: lerp(150, 0, u),
+				b: lerp(150, 255, u)
 			})
 		}
 	}

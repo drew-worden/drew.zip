@@ -1,7 +1,10 @@
 // Interfaces
-interface Location {
+interface QueueEntry {
 	x: number
 	y: number
+	r: number
+	g: number
+	b: number
 }
 
 interface Move {
@@ -9,5 +12,11 @@ interface Move {
 	swapped: boolean
 }
 
+interface RGB {
+	r: number
+	g: number
+	b: number
+}
+
 // Exports
-export type { Location, Move }
+export type { QueueEntry, Move, RGB }
