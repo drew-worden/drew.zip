@@ -2,36 +2,29 @@
 <script lang="ts">
 	// Imports
 	import { onMount } from "svelte"
-	import {
-		fillArrayWithRandoms,
-		generateColumns,
-		animateColumns,
-		bubbleSort
-	} from "$lib/projects/algorithm-visualizer/main"
+	import VisualizerControls from "../../../components/projects/algorithm-visualizer/VisualizerControls.svelte"
 
 	// State
-	let numColumns = 20
 	let canvas: HTMLCanvasElement
-	let array: number[] = []
 
 	// Lifecycle
 	onMount(() => {
-		fillArrayWithRandoms(array, numColumns)
 		canvas.width = window.innerWidth - 64
 		canvas.height = 500
-		const columns = generateColumns(array, canvas)
-		let moves = bubbleSort(array)
-		console.log(moves)
-		animateColumns(canvas, columns, moves)
 	})
 </script>
 
 <!-- Markup -->
 <h1>Algorithm Visualizer</h1>
+<VisualizerControls canvasRef={canvas} />
 <canvas bind:this={canvas}></canvas>
 
 <!-- Styles -->
 <style>
+	h1 {
+		margin-bottom: 16px;
+	}
+
 	canvas {
 		position: absolute;
 		bottom: 32px;

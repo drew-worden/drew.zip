@@ -9,6 +9,9 @@ class Column {
 	private height: number
 	private queue: Location[]
 
+	/**
+	 * Represents a column in the algorithm visualizer.
+	 */
 	constructor(x: number, y: number, width: number, height: number) {
 		this.x = x
 		this.y = y
@@ -17,6 +20,12 @@ class Column {
 		this.queue = []
 	}
 
+	/**
+	 * Draws the column on the canvas.
+	 *
+	 * @param ctx - The canvas rendering context.
+	 * @returns A boolean indicating whether the column has changed.
+	 */
 	draw(ctx: CanvasRenderingContext2D) {
 		let changed = false
 
@@ -44,13 +53,19 @@ class Column {
 		return changed
 	}
 
-	moveTo(location: Location, frameCount = 10, offset = 1) {
+	/**
+	 * Moves the column to the specified location over a given number of frames.
+	 * @param location - The target location to move the column to.
+	 * @param frameCount - The number of frames to complete the movement. Default is 10.
+	 * @param offset - The offset to apply to the y-coordinate of the column during the movement. Default is 1 or -1.
+	 */
+	moveTo(location: Location, frameCount = 10, offset = 1 | -1) {
 		for (let i = 1; i <= frameCount; i++) {
 			const t = i / frameCount
 			const u = Math.sin(t * Math.PI)
 			this.queue.push({
 				x: lerp(this.x, location.x, t),
-				y: lerp(this.y, location.y, t) + (u * this.width) / 2 * offset
+				y: lerp(this.y, location.y, t) + ((u * this.width) / 4) * offset
 			})
 		}
 	}

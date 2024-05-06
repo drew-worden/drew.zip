@@ -3,15 +3,17 @@ import Column from "$lib/projects/algorithm-visualizer/column"
 import type { Move } from "./types"
 
 /**
- * Fills an array with random numbers.
+ * Generates an array with `n` random numbers.
  *
- * @param array - The array to fill with random numbers.
- * @param n - The number of random numbers to generate and add to the array.
+ * @param n - The number of random numbers to generate.
+ * @returns An array of `n` random numbers.
  */
-function fillArrayWithRandoms(array: number[], n: number) {
+function generateRandomArray(n: number) {
+	const array: number[] = []
 	for (let i = 0; i < n; i++) {
 		array.push(Math.random())
 	}
+	return array
 }
 
 /**
@@ -28,7 +30,7 @@ function fillArrayWithRandoms(array: number[], n: number) {
 function generateColumns(
 	columnArray: number[],
 	canvas: HTMLCanvasElement,
-	margin: number = 16,
+	margin: number = 32,
 	gap = 4,
 	maxColHeight = 300
 ) {
@@ -41,7 +43,7 @@ function generateColumns(
 
 	for (let i = 0; i < columnArray.length; i++) {
 		const colX = i * spacing + spacing / 2 + margin
-		const colY = canvas.height - margin - i * 2
+		const colY = canvas.height - margin
 		const colWidth = spacing - gap
 		const colHeight = maxColHeight * columnArray[i]
 		cols[i] = new Column(colX, colY, colWidth, colHeight)
@@ -50,6 +52,32 @@ function generateColumns(
 	return cols
 }
 
+/**
+ * Draws the columns on the canvas.
+ * 
+ * @param canvas - The HTMLCanvasElement on which the columns will be drawn.
+ * @param columns - An array of Column objects representing the columns to be drawn.
+ * @throws Error if the canvas context is null.
+ */
+function drawColumns(canvas: HTMLCanvasElement, columns: Column[]) {
+	const ctx = canvas.getContext("2d")
+	if (!ctx) {
+		throw new Error("Canvas context is null")
+	}
+
+	ctx.clearRect(0, 0, canvas.width, canvas.height)
+	for (let i = 0; i < columns.length; i++) {
+		columns[i].draw(ctx)
+	}
+}
+
+/**
+ * Animates the columns on a canvas based on the provided moves.
+ *
+ * @param canvas - The HTMLCanvasElement on which the columns will be animated.
+ * @param columns - An array of Column objects representing the columns to be animated.
+ * @param moves - An array of Move objects representing the moves to be performed on the columns.
+ */
 function animateColumns(canvas: HTMLCanvasElement, columns: Column[], moves: Move[]) {
 	const ctx = canvas.getContext("2d")
 	if (!ctx) {
@@ -79,30 +107,5 @@ function animateColumns(canvas: HTMLCanvasElement, columns: Column[], moves: Mov
 	requestAnimationFrame(() => animateColumns(canvas, columns, moves))
 }
 
-/**
- * Sorts an array of numbers using the bubble sort algorithm.
- * @param array - The array of numbers to be sorted.
- * @returns An array of Move objects representing the moves made during the sorting process.
- */
-function bubbleSort(array: number[]) {
-	const moves: Move[] = []
-	let swapped: boolean
-	do {
-		swapped = false
-		for (let i = 1; i < array.length; i++) {
-			if (array[i - 1] > array[i]) {
-				const temp = array[i - 1]
-				array[i - 1] = array[i]
-				array[i] = temp
-				swapped = true
-				moves.push({ indices: [i - 1, i], swapped: true })
-			} else {
-				moves.push({ indices: [i - 1, i], swapped: false })
-			}
-		}
-	} while (swapped)
-
-	return moves
-}
-
-export { fillArrayWithRandoms, generateColumns, animateColumns, bubbleSort }
+// Exports
+export { generateRandomArray, generateColumns, drawColumns, animateColumns }
