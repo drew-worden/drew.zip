@@ -6,8 +6,10 @@
 		HeaderNav,
 		HeaderNavItem,
 		SkipToContent,
-		Content
+		Content,
+		Button
 	} from "carbon-components-svelte"
+	import LogoGithub from "carbon-icons-svelte/lib/LogoGithub.svelte"
 	import "carbon-components-svelte/css/g100.css"
 </script>
 
@@ -24,23 +26,26 @@
 			href="/projects"
 			text="Projects"
 		/>
-		<!--<HeaderNavMenu text="Menu">
-			<HeaderNavItem
-				href="/"
-				text="Link 1"
-			/>
-			<HeaderNavItem
-				href="/"
-				text="Link 2"
-			/>
-			<HeaderNavItem
-				href="/"
-				text="Link 3"
-			/>
-		</HeaderNavMenu>-->
 	</HeaderNav>
+	<div class="right-buttons">
+		<Button
+			href="https://github.com/drew-worden/drew.zip"
+			target="_blank"
+			iconDescription="Source Code"
+			icon={LogoGithub}
+			kind="ghost"
+			tooltipAlignment="end"
+			tooltipPosition="bottom"
+		/>
+	</div>
 </Header>
-
 <Content>
 	<slot />
 </Content>
+
+<!-- Styles -->
+<style>
+	.right-buttons {
+		margin-left: auto;
+	}
+</style>
