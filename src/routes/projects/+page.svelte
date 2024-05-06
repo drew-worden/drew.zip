@@ -14,7 +14,7 @@
 
 <div class="projects-grid">
 	<ClickableTile
-		href="/projects/algorithmn-visualizer"
+		href="/projects/algorithm-visualizer"
 		style="width: fit-content;"
 	>
 		<ProjectTile
