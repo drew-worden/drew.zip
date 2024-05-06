@@ -9,7 +9,11 @@
 		drawColumns,
 		animateColumns
 	} from "$lib/projects/algorithm-visualizer/main"
-	import { bubbleSort, selectionSort } from "$lib/projects/algorithm-visualizer/algos"
+	import {
+		bubbleSort,
+		selectionSort,
+		insertionSort
+	} from "$lib/projects/algorithm-visualizer/algos"
 	import type Column from "$lib/projects/algorithm-visualizer/column"
 	import type { Move } from "$lib/projects/algorithm-visualizer/types"
 
@@ -66,6 +70,8 @@
 			moves = bubbleSort(array)
 		} else if (selectedId === "1") {
 			moves = selectionSort(array)
+		} else if (selectedId === "2") {
+			moves = insertionSort(array)
 		}
 		animateColumns(canvasRef, columns, moves)
 	}
@@ -97,7 +103,8 @@
 		on:select={handleSelect}
 		items={[
 			{ id: "0", text: "Bubble Sort" },
-			{ id: "1", text: "Selection Sort" }
+			{ id: "1", text: "Selection Sort" },
+			{ id: "2", text: "Insertion Sort" }
 		]}
 	/>
 	<div class="number-wrapper">
@@ -117,7 +124,7 @@
 		>Randomize
 	</Button>
 	<Button
-		kind="secondary"
+		kind="primary"
 		size="small"
 		on:click={handleStart}>Start</Button
 	>

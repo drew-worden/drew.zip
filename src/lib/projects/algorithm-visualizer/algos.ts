@@ -52,5 +52,26 @@ function selectionSort(array: number[]) {
 	return moves
 }
 
+/**
+ * Sorts an array of numbers using the insertion sort algorithm.
+ * @param array - The array of numbers to be sorted.
+ * @returns An array of Move objects representing the steps taken during the sorting process.
+ */
+function insertionSort(array: number[]) {
+	const moves: Move[] = []
+	for (let i = 1; i < array.length; i++) {
+		let j = i
+		while (j > 0 && array[j - 1] > array[j]) {
+			const temp = array[j]
+			array[j] = array[j - 1]
+			array[j - 1] = temp
+			moves.push({ indices: [j - 1, j], swapped: true })
+			j--
+		}
+		moves.push({ indices: [j, i], swapped: false })
+	}
+	return moves
+}
+
 // Exports
-export { bubbleSort, selectionSort }
+export { bubbleSort, selectionSort, insertionSort }

@@ -70,9 +70,9 @@ class Column {
 			this.queue.push({
 				x: lerp(this.x, column.x, t),
 				y: lerp(this.y, column.y, t) + ((u * this.width) / 4) * offset,
-				r: lerp(150, 0, u),
-				g: lerp(150, 0, u),
-				b: lerp(150, 255, u)
+				r: lerp(150, 14, u),
+				g: lerp(150, 97, u),
+				b: lerp(150, 254, u)
 			})
 		}
 	}
