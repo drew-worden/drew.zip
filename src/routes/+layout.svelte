@@ -11,6 +11,7 @@
 	} from "carbon-components-svelte"
 	import LogoGithub from "carbon-icons-svelte/lib/LogoGithub.svelte"
 	import "carbon-components-svelte/css/g100.css"
+	import "../app.css"
 </script>
 
 <!-- Markup -->
