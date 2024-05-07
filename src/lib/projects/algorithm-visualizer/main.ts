@@ -99,8 +99,6 @@ function animateColumns(canvas: HTMLCanvasElement, columns: Column[], moves: Mov
 			const temp = columns[i]
 			columns[i] = columns[j]
 			columns[j] = temp
-		} else {
-			// Highlight the columns that are being compared
 		}
 	}
 

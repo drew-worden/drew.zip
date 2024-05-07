@@ -16,12 +16,17 @@
 
 <!-- Markup -->
 <h1>Algorithm Visualizer</h1>
+<p>Use the controls below to change the parameters of the visualizer.</p>
 <VisualizerControls canvasRef={canvas} />
 <canvas bind:this={canvas}></canvas>
 
 <!-- Styles -->
 <style>
 	h1 {
+		margin-bottom: 8px;
+	}
+
+	p {
 		margin-bottom: 16px;
 	}
 

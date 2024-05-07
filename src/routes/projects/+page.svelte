@@ -3,15 +3,17 @@
 	// Imports
 	import { ClickableTile } from "carbon-components-svelte"
 	import ProjectTile from "../../components/projects/ProjectTile.svelte"
+	import AlgorithmVisualizerThumbnail from "../../assets/projects/algorithm-visualizer/thumbnail.png"
 </script>
 
 <!-- Markup -->
 <h1>Projects</h1>
 <p class="page-desc">
-	Below are a series of projects developed and designed by Drew Worden. They are in various stages
-	completeness.
+	Below are a series of projects developed and designed by Drew Worden. Most of these projects
+	don't showcase specific domain knowledge or technologies, instead they are presented with the
+	intention to showcase a broad range of interests and implementation skills. They are in various
+	stages of completeness.
 </p>
-
 <div class="projects-grid">
 	<ClickableTile
 		href="/projects/algorithm-visualizer"
@@ -19,7 +21,18 @@
 	>
 		<ProjectTile
 			name="Algorithm Visualizer"
-			description="A web application that visualizes various sorting algorithms."
+			description="A visualizer for various sorting algorithms."
+			thumbnailPath={AlgorithmVisualizerThumbnail}
+		/>
+	</ClickableTile>
+	<ClickableTile
+		href="/projects/wave-simulation"
+		style="width: fit-content;"
+	>
+		<ProjectTile
+			name="Wave Simulation"
+			description="An implementation of the 4th order PDE wave equation using damping and stress-strain coupling."
+			thumbnailPath={""}
 		/>
 	</ClickableTile>
 	<ClickableTile
@@ -29,6 +42,7 @@
 		<ProjectTile
 			name="Self-Driving Simulation"
 			description="A simulation of a self-driving car using a neural network."
+			thumbnailPath={""}
 		/>
 	</ClickableTile>
 </div>
@@ -42,7 +56,7 @@
 	.projects-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-		grid-gap: 1rem;
-		margin-top: 16px;
+		gap: 16px;
+		margin-top: 32px;
 	}
 </style>

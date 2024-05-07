@@ -101,6 +101,7 @@
 		titleText="Algorithm"
 		selectedId="0"
 		on:select={handleSelect}
+		style="width: 150px;"
 		items={[
 			{ id: "0", text: "Bubble Sort" },
 			{ id: "1", text: "Selection Sort" },
