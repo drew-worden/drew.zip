@@ -14,11 +14,11 @@
 		target="_blank"
 	>
 		<h5>GitHub</h5>
-		<p>Web apps, compilers, ML and AI models, parsers, and more.</p>
+		<p>Source code for web apps, compilers, ML and AI models, parsers, and more.</p>
 	</ClickableTile>
 	<ClickableTile
 		light
-		href="https://www.linkedin.com/"
+		href="https://www.linkedin.com/in/drewpworden/"
 		target="_blank"
 	>
 		<h5>LinkedIn</h5>
@@ -44,6 +44,7 @@
 	</ClickableTile>
 </div>
 
+<!-- Styles -->
 <style>
 	h1 {
 		margin-bottom: 16px;
