@@ -45,6 +45,16 @@
 			thumbnailPath={""}
 		/>
 	</ClickableTile>
+	<ClickableTile
+		href="/projects/generative-brush"
+		style="width: fit-content;"
+	>
+		<ProjectTile
+			name="Generative Brush"
+			description="Generative art powered by fractal algorithms and your cursor."
+			thumbnailPath={""}
+		/>
+	</ClickableTile>
 </div>
 
 <!-- Styles -->
@@ -56,7 +66,7 @@
 	.projects-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-		gap: 16px;
+		gap: 32px;
 		margin-top: 32px;
 	}
 </style>
