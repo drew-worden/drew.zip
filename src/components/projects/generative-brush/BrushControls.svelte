@@ -5,7 +5,7 @@
 
 	// Props
 	export let canvasRef: HTMLCanvasElement
-	export let selectedBrush = "Column Brush"
+	export let selectedBrush = "Column"
 
 	// Handlers
 	function handleReset() {
@@ -21,12 +21,13 @@
 <div class="controls-wrapper">
 	<Dropdown
 		size="sm"
-		titleText="Algorithm"
+		titleText="Brush"
 		selectedId="0"
 		style="width: 200px;"
 		items={[
-			{ id: "0", text: "Column Brush" },
-			{ id: "1", text: "Vine Brush" }
+			{ id: "0", text: "Column" },
+			{ id: "1", text: "Vine" },
+			{ id: "2", text: "Flowering" }
 		]}
 		on:select={(e) => (selectedBrush = e.detail.selectedItem.text)}
 	/>

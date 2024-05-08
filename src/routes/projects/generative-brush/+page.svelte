@@ -5,10 +5,12 @@
 	import BrushControls from "../../../components/projects/generative-brush/BrushControls.svelte"
 	import DefaultBrush from "$lib/projects/generative-brush/column-brush"
 	import VineBrush from "$lib/projects/generative-brush/vine-brush"
+	import FloweringBrush from "$lib/projects/generative-brush/flowering-brush"
 
 	// State
 	let canvas: HTMLCanvasElement
 	let selectedBrush: string
+	let drawing = false
 
 	// Lifecycle
 	onMount(() => {
@@ -28,21 +30,56 @@
 			}
 
 			let brush: DefaultBrush | VineBrush
-			if (selectedBrush === "Column Brush") {
-				brush = new DefaultBrush(ctx, e.offsetX, e.offsetY)
-			} else if (selectedBrush === "Vine Brush") {
-				brush = new VineBrush(ctx, e.offsetX, e.offsetY)
-			} else {
-				throw new Error("Invalid brush selected.")
+
+			if (drawing) {
+				for (let i = 0; i < 2; i++) {
+					if (selectedBrush === "Column") {
+						brush = new DefaultBrush(ctx, e.offsetX, e.offsetY)
+					} else if (selectedBrush === "Vine") {
+						brush = new VineBrush(ctx, e.offsetX, e.offsetY)
+					} else if (selectedBrush === "Flowering") {
+						brush = new FloweringBrush(ctx, e.offsetX, e.offsetY)
+					} else {
+						throw new Error("Invalid brush selected.")
+					}
+					brush.update()
+				}
 			}
-			brush.update()
+		}
+
+		function handleMouseDown(e: MouseEvent) {
+			if (!ctx) {
+				throw new Error("Failed to get 2d canvas context.")
+			}
+			let brush: DefaultBrush | VineBrush
+			drawing = true
+			for (let i = 0; i < 30; i++) {
+				if (selectedBrush === "Column") {
+					brush = new DefaultBrush(ctx, e.offsetX, e.offsetY)
+				} else if (selectedBrush === "Vine") {
+					brush = new VineBrush(ctx, e.offsetX, e.offsetY)
+				} else if (selectedBrush === "Flowering") {
+					brush = new FloweringBrush(ctx, e.offsetX, e.offsetY)
+				} else {
+					throw new Error("Invalid brush selected.")
+				}
+				brush.update()
+			}
+		}
+
+		function handleMouseUp() {
+			drawing = false
 		}
 
 		canvas.addEventListener("mousemove", handleMouseMove)
+		canvas.addEventListener("mousedown", handleMouseDown)
+		canvas.addEventListener("mouseup", handleMouseUp)
 
 		return {
 			destroy() {
-				canvas.removeEventListener("mousemove", handleMouseMove)
+				canvas.removeEventListener("mousemove", handleMouseMove),
+					canvas.removeEventListener("mousedown", handleMouseDown),
+					canvas.removeEventListener("mouseup", handleMouseUp)
 			}
 		}
 	})
@@ -50,7 +87,9 @@
 
 <!-- Markup -->
 <h1>Generative Brush</h1>
-<p>Generative art powered by fractal algorithms and your cursor.</p>
+<p>
+	Generative art powered by fractal algorithms and your cursor.
+</p>
 <BrushControls
 	canvasRef={canvas}
 	bind:selectedBrush

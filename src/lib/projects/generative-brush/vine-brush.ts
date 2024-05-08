@@ -2,11 +2,11 @@
 import DefaultBrush from "./column-brush"
 
 class VineBrush extends DefaultBrush {
-	private angleX: number
-	private angleY: number
-	private sizeVelocity: number
-	private angleXVelocity: number
-	private angleYVelocity: number
+	public angleX: number
+	public angleY: number
+	public sizeVelocity: number
+	public angleXVelocity: number
+	public angleYVelocity: number
 
 	constructor(ctx: CanvasRenderingContext2D, x: number, y: number) {
 		super(ctx, x, y)
@@ -24,10 +24,12 @@ class VineBrush extends DefaultBrush {
 		this.angleX += this.angleXVelocity
 		this.angleY += this.angleYVelocity
 
+		if (this.lightness < 70) this.lightness += 0.25
+
 		if (this.size < this.maxSize) {
 			this.ctx.beginPath()
 			this.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-			this.ctx.fillStyle = "green"
+			this.ctx.fillStyle = `hsl(120, 100%, ${this.lightness}%)`
 			this.ctx.fill()
 			this.ctx.stroke()
 			requestAnimationFrame(this.update.bind(this))
