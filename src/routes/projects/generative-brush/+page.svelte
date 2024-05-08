@@ -87,9 +87,7 @@
 
 <!-- Markup -->
 <h1>Generative Brush</h1>
-<p>
-	Generative art powered by fractal algorithms and your cursor.
-</p>
+<p>Generative art powered by fractal algorithms and your cursor.</p>
 <BrushControls
 	canvasRef={canvas}
 	bind:selectedBrush

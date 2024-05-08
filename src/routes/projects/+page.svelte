@@ -4,6 +4,7 @@
 	import { ClickableTile } from "carbon-components-svelte"
 	import ProjectTile from "../../components/projects/ProjectTile.svelte"
 	import AlgorithmVisualizerThumbnail from "../../assets/projects/algorithm-visualizer/thumbnail.png"
+	import GenerativeBrushThumbnail from "../../assets/projects/generative-brush/thumbnail.png"
 </script>
 
 <!-- Markup -->
@@ -52,7 +53,7 @@
 		<ProjectTile
 			name="Generative Brush"
 			description="Generative art powered by fractal algorithms and your cursor."
-			thumbnailPath={""}
+			thumbnailPath={GenerativeBrushThumbnail}
 		/>
 	</ClickableTile>
 </div>
