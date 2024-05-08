@@ -3,9 +3,10 @@
 	// Imports
 	import { onMount } from "svelte"
 	import BrushControls from "../../../components/projects/generative-brush/BrushControls.svelte"
-	import DefaultBrush from "$lib/projects/generative-brush/column-brush"
+	import ColumnBrush from "$lib/projects/generative-brush/column-brush"
 	import VineBrush from "$lib/projects/generative-brush/vine-brush"
 	import FloweringBrush from "$lib/projects/generative-brush/flowering-brush"
+	import CubeBrush from "$lib/projects/generative-brush/cube-brush"
 
 	// State
 	let canvas: HTMLCanvasElement
@@ -29,16 +30,18 @@
 				throw new Error("Failed to get 2d canvas context.")
 			}
 
-			let brush: DefaultBrush | VineBrush
+			let brush: ColumnBrush | VineBrush | FloweringBrush | CubeBrush
 
 			if (drawing) {
 				for (let i = 0; i < 2; i++) {
 					if (selectedBrush === "Column") {
-						brush = new DefaultBrush(ctx, e.offsetX, e.offsetY)
+						brush = new ColumnBrush(ctx, e.offsetX, e.offsetY)
 					} else if (selectedBrush === "Vine") {
 						brush = new VineBrush(ctx, e.offsetX, e.offsetY)
 					} else if (selectedBrush === "Flowering") {
 						brush = new FloweringBrush(ctx, e.offsetX, e.offsetY)
+					} else if (selectedBrush === "Cube") {
+						brush = new CubeBrush(ctx, e.offsetX, e.offsetY)
 					} else {
 						throw new Error("Invalid brush selected.")
 					}
@@ -51,15 +54,17 @@
 			if (!ctx) {
 				throw new Error("Failed to get 2d canvas context.")
 			}
-			let brush: DefaultBrush | VineBrush
+			let brush: ColumnBrush | VineBrush
 			drawing = true
 			for (let i = 0; i < 30; i++) {
 				if (selectedBrush === "Column") {
-					brush = new DefaultBrush(ctx, e.offsetX, e.offsetY)
+					brush = new ColumnBrush(ctx, e.offsetX, e.offsetY)
 				} else if (selectedBrush === "Vine") {
 					brush = new VineBrush(ctx, e.offsetX, e.offsetY)
 				} else if (selectedBrush === "Flowering") {
 					brush = new FloweringBrush(ctx, e.offsetX, e.offsetY)
+				} else if (selectedBrush === "Cube") {
+					brush = new CubeBrush(ctx, e.offsetX, e.offsetY)
 				} else {
 					throw new Error("Invalid brush selected.")
 				}
