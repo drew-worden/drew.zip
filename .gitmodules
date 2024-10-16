@@ -1,0 +1,3 @@
+[submodule "src/projects/self-driving-simulation"]
+	path = src/projects/self-driving-simulation
+	url = https://github.com/drew-worden/self-driving-simulation
