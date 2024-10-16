@@ -1,38 +1,42 @@
-# create-svelte
+# drew.zip
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+A personal website built with [SvelteKit](https://kit.svelte.dev/) and [Vercel](https://vercel.com/). **drew.zip** is the place to go for my most up to date resume, bio, and hosted projects
 
-## Creating a project
+## Table of Contents
 
-If you're seeing this, you've probably already done this step. Congrats!
+- [Features](#features)
+- [Live Site](#live-site)
+- [Deployment](#deployment)
+- [License](#license)
+- [Contact](#contact)
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Features
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+- **Resume**: An interactive resume detailing my professional experience, education, and skills.
+- **Bio**: A personal biography providing insights into my background and interests.
+- **Projects**: Showcases of my hosted projects with descriptions and links.
+- **Blog**: Articles and tutorials on topics I'm passionate about.
+- **Contact Form**: A form to get in touch with me directly through the website.
 
-## Developing
+## Live Site
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Check out the live site: [drew.zip](https://drew.zip)
 
-```bash
-npm run dev
+## Deployment
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+The site is deployed on Vercel for seamless integration and deployment.
 
-## Building
+## Built With
 
-To create a production version of your app:
+- [SvelteKit](https://kit.svelte.dev/) - The framework used
+- [Vercel](https://vercel.com/) - Deployment platform
 
-```bash
-npm run build
-```
+## License
 
-You can preview the production build with `npm run preview`.
+This project is licensed under the [MIT License](LICENSE).
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Contact
+
+- **Email:** drew.p.worden@gmail.com
+- **LinkedIn:** linkedin.com/in/drewpworden
+- **GitHub:** github.com/drew-worden
