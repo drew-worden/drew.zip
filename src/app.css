@@ -1,0 +1,26 @@
+/* Sizes
+xsm, sm, md, lg, xlg
+*/
+
+:root {
+    --pad-lg: 16px;
+}
+
+* {
+    margin: 0px;
+    outline: 0px;
+    border: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+
