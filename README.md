@@ -28,7 +28,7 @@ The site is deployed on Vercel for seamless integration and deployment.
 
 ## Built With
 
-- [SvelteKit](https://kit.svelte.dev/) - The framework used
+- [SvelteKit](https://kit.svelte.dev/) - Web framework
 - [Vercel](https://vercel.com/) - Deployment platform
 
 ## License
