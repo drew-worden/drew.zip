@@ -3,7 +3,33 @@ xsm, sm, md, lg, xlg
 */
 
 :root {
+    --pad-xlg: 32px;
     --pad-lg: 16px;
+    --pad-md: 12px;
+    --pad-sm: 8px;
+    --pad-xsm: 4px;
+
+    --gap-xlg: 32px;
+    --gap-lg: 16px;
+    --gap-md: 12px;
+    --gap-sm: 8px;
+    --gap-xsm: 4px;
+
+    --br-xlg: 16px;
+    --br-lg: 8px;
+    --br-md: 4px;
+    --br-sm: 2px;
+    --br-xsm: 1px;
+
+    --font-xlg: 32px;
+    --font-lg: 24px;
+    --font-md: 16px;
+    --font-sm: 12px;
+    --font-xsm: 8px;
+    
+    --bg-dark: #0C0C0C;
+
+    --border-light: #353535;
 }
 
 * {
@@ -12,10 +38,22 @@ xsm, sm, md, lg, xlg
     border: 0px;
     padding: 0px;
     box-sizing: border-box;
+    transition: all 0.1s ease-in-out;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Utility classes */
 .row {
     display: flex;
+}
+
+.row-center {
+    display: flex;
+    align-items: center;
 }
 
 .col {
@@ -23,4 +61,140 @@ xsm, sm, md, lg, xlg
     flex-direction: column;
 }
 
+/* Gap */
+.gap-xlg {
+    gap: var(--gap-xlg)
+}
+
+.gap-lg {
+    gap: var(--gap-lg)
+}
+
+.gap-md {
+    gap: var(--gap-md)
+}
+
+.gap-sm {
+    gap: var(--gap-sm)
+}
+
+.gap-xsm {
+    gap: var(--gap-xsm)
+}
+
+/* Padding */
+.pad-xlg {
+    padding: var(--pad-xlg)
+}
+
+.pad-lg {
+    padding: var(--pad-lg)
+}
+
+.pad-md {
+    padding: var(--pad-md)
+}
+
+.pad-sm {
+    padding: var(--pad-sm)
+}
+
+.pad-xsm {
+    padding: var(--pad-xsm)
+}
+
+/* Border radius */
+.br-xlg {
+    border-radius: var(--br-xlg)
+}
+
+.br-lg {
+    border-radius: var(--br-lg)
+}
+
+.br-md {
+    border-radius: var(--br-md)
+}
+
+.br-sm {
+    border-radius: var(--br-sm)
+}
+
+.br-xsm {
+    border-radius: var(--br-xsm)
+}
+
+.bg-dark {
+    background-color: var(--bg-dark);
+}
+
+/* Fonts */
+.rubik {
+    font-family: rubik;
+}
+
+.rubiki {
+    font-family: rubiki;
+}
+
+.font-xlg {
+    font-size: var(--font-xlg);
+}
+
+.font-lg {
+    font-size: var(--font-lg);
+}
+
+.font-md {
+    font-size: var(--font-md);
+}
+
+.font-sm {
+    font-size: var(--font-sm);
+}
+
+.font-xsm {
+    font-size: var(--font-xsm);
+}
+
+.weight-300 {
+    font-weight: 300;
+}
+
+.weight-400 {
+    font-weight: 400;
+}
+
+.weight-500 {
+    font-weight: 500;
+}
+
+.weight-700 {
+    font-weight: 700;
+}
+
+.weight-800 {
+    font-weight: 800;
+}
+
+.weight-900 {
+    font-weight: 900;
+}
+
+.border-outline-right {
+    border-right: 1px solid var(--border-light);
+}
+
+/* Font declarations */
+@font-face {
+    font-family: rubik;
+    src: url("/fonts/rubik.ttf");
+    font-weight: 300 900;
+}
+
+@font-face {
+    font-family: rubiki;
+    src: url("/fonts/rubiki.ttf");
+    font-weight: 300 900;
+}
 
