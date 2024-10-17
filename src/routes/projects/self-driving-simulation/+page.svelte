@@ -1,1 +1,6 @@
-<h1>Self Driving Simulation</h1>
+<script lang="ts">
+    // Imports
+    import SelfDrivingSimulation from "../../../projects/self-driving-simulation/components/SelfDrivingSimulation.svelte";
+</script>
+
+<SelfDrivingSimulation />
