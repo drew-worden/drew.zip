@@ -1,11 +1,11 @@
 <script lang="ts">
 	// Imports
-	import Navbar from "$lib/components/Navbar.svelte";
+	import Navbar from "$lib/components/Navbar.svelte"
 	import "../app.css"
 </script>
 
 <div class="responsive">
-	<Navbar/>
+	<Navbar />
 	<slot />
 </div>
 
@@ -19,6 +19,12 @@
 	@media (max-width: 810px) {
 		.responsive {
 			padding: 24px;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.responsive {
+			padding: 12px;
 		}
 	}
 </style>
