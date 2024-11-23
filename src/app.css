@@ -4,6 +4,7 @@
 	--card-bg-color: #dac5a70d;
 	--border-color: #dac5a726;
 	--font-color: #dac5a7;
+	--font-color-dark: #1d1e1f;
 	--card-padding: 12px;
 }
 
@@ -31,8 +32,9 @@
 	margin: 0;
 	padding: 0;
 	border: 0;
-	/* outline: 1px solid red; */
+	/* outline: 1px red solid; */
 	box-sizing: border-box;
+	transition: all 0.2s ease-in-out;
 }
 
 a {
@@ -53,4 +55,24 @@ body {
 	backdrop-filter: blur(30px);
 	background-color: var(--card-bg-color);
 	padding: var(--card-padding);
+}
+
+.row {
+	display: flex;
+}
+
+.row-center {
+	display: flex;
+	align-items: center;
+}
+
+.col {
+	display: flex;
+	flex-direction: column;
+}
+
+.col-center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
