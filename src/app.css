@@ -1,0 +1,56 @@
+/* Variables */
+:root {
+	--body-bg-color: #050505;
+	--card-bg-color: #dac5a70d;
+	--border-color: #dac5a726;
+	--font-color: #dac5a7;
+	--card-padding: 12px;
+}
+
+/* Fonts */
+@font-face {
+	font-family: outfit;
+	src: url("./assets/fonts/outfit.ttf") format("truetype");
+	font-weight: 100 900;
+}
+
+@font-face {
+	font-family: satoshi;
+	src: url("./assets/fonts/satoshi.woff2") format("woff2");
+	font-weight: 300 900;
+}
+
+@font-face {
+	font-family: satoshi-italic;
+	src: url("./assets/fonts/satoshi-italic.woff2") format("woff2");
+	font-weight: 300 900;
+}
+
+/* Elements resets and default styles */
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	/* outline: 1px solid red; */
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+body {
+	background-color: var(--body-bg-color);
+}
+
+/* Global reusable classes */
+.border {
+	border: 1px solid var(--border-color);
+}
+
+.blurred-card {
+	backdrop-filter: blur(30px);
+	background-color: var(--card-bg-color);
+	padding: var(--card-padding);
+}
