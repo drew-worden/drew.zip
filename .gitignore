@@ -1,11 +1,10 @@
-test-results
+# Generated
 node_modules
-
-# Output
 .output
 .vercel
 /.svelte-kit
 /build
+/tests/browser/results
 
 # OS
 .DS_Store

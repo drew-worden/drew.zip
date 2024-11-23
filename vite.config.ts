@@ -1,10 +1,15 @@
-import { defineConfig } from 'vitest/config';
-import { sveltekit } from '@sveltejs/kit/vite';
+// Imports
+import { defineConfig } from "vitest/config"
+import { sveltekit } from "@sveltejs/kit/vite"
 
-export default defineConfig({
+// Vite configuration
+const viteConfig = defineConfig({
 	plugins: [sveltekit()],
-
 	test: {
-		include: ['src/**/*.{test,spec}.{js,ts}']
+		include: ["tests/unit/**/*.test.ts"],
+		watch: false
 	}
-});
+})
+
+// Exports
+export default viteConfig
