@@ -104,11 +104,10 @@
 <style>
 	nav {
 		width: fit-content;
-		position: absolute;
+		position: fixed;
 		left: 50%;
 		transform: translateX(-50%);
 		padding: 12px 12px 12px 20px;
-		position: relative;
 	}
 
 	.tag {
@@ -182,7 +181,7 @@
 
 	@media (max-width: 810px) {
 		nav {
-			width: 100%;
+			width: calc(100% - 64px);
 		}
 
 		.links {
@@ -209,6 +208,7 @@
 
 		nav {
 			padding: 8px 8px 8px 16px;
+			width: calc(100% - 32px);
 		}
 
 		.contact {
