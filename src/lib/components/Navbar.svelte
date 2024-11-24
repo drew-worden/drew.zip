@@ -7,7 +7,10 @@
 </script>
 
 <nav class="blurred-card border row-center">
-	<a href="/"><span class="tag">drew.</span></a>
+	<a
+		href="/"
+		on:click={() => (open = false)}><span class="tag">drew.</span></a
+	>
 	<div class="links row-center">
 		<a
 			href="/about"
@@ -36,6 +39,7 @@
 	</div>
 	<a
 		href="/contact"
+		on:click={() => (open = false)}
 		class="contact responsive link">Contact</a
 	>
 	<svg
@@ -70,22 +74,27 @@
 		>
 			<a
 				href="/about"
+				on:click={() => (open = false)}
 				class="link">About</a
 			>
 			<a
 				href="/experience"
+				on:click={() => (open = false)}
 				class="link">Experience</a
 			>
 			<a
 				href="/projects"
+				on:click={() => (open = false)}
 				class="link">Projects</a
 			>
 			<a
 				href="/resume"
+				on:click={() => (open = false)}
 				class="link">Resume</a
 			>
 			<a
 				href="/blog"
+				on:click={() => (open = false)}
 				class="link">Blog</a
 			>
 		</div>
@@ -190,6 +199,29 @@
 
 		.responsive {
 			display: block;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.link {
+			font-size: 12px;
+		}
+
+		nav {
+			padding: 8px 8px 8px 16px;
+		}
+
+		.contact {
+			background-color: var(--font-color);
+			color: var(--font-color-dark) !important;
+			padding: 6px 12px;
+			border-radius: 2px;
+		}
+
+		.links-menu {
+			top: calc(100% + 8px);
+			gap: 8px;
+			padding: 16px;
 		}
 	}
 </style>
