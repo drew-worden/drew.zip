@@ -1,3 +1,8 @@
+<script lang="ts">
+	// Imports
+	import SlidingBanner from "$lib/components/SlidingBanner.svelte"
+</script>
+
 <div class="page">
 	<img
 		class="headshot"
@@ -25,6 +30,7 @@
 			><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></svg
 		>
 	</a>
+	<SlidingBanner />
 	<section
 		id="intro"
 		class="about"
